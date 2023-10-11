@@ -4,6 +4,12 @@
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
+/**
+ * main - The function generates a random number and then checks if it is positive, negative, or zero, and
+ * prints the corresponding message.
+ * 
+ * Return: The main function is returning 0.
+ */
 int main(void)
 {
 	int n;
