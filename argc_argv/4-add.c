@@ -4,39 +4,44 @@
 #include <string.h>
 
 /**
- * main - adds positive numbers
- * @argc: number of arguments
- * @argv: array of pointers to the strings (arguments)
- *
- * Return: Always 0 (Success)
- */
-
-int main(int argc, char *argv[])
-
-{
-    int i, j, k;
-
-    if (argc < 2)
+  * main - Prints the sum of args positive numbers
+  * @argc: argument count
+  * @argv: argument vector
+  *
+  * Return: Always zero
+  */
+        int main(int argc, char *argv[])
     {
-        printf("0\n");
-        return (0);
+	int i;
+	unsigned int k, sum = 0;
+	char *e;
+
+	if (argc > 1)
+	{
+		for (i = 1; i < argc; i++)
+		{
+			e = argv[i];
+
+			for (k = 0; k < strlen(e); k++)
+			{
+				if (e[k] < 48 || e[k] > 57)
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
+
+			sum += atoi(e);
+			e++;
+		}
+
+		printf("%d\n", sum);
+	}
+	else
+	{
+		printf("0\n");
+	}
+
+	return (0);
     }
-    else
-    {
-        k = 0;
-        for (i = 1; i < argc; i++)
-        {
-            for (j = 0; j < strlen(argv[i]); j++)
-            {
-                if (argv[i][j] < '0' || argv[i][j] > '9')
-                {
-                    printf("Error\n");
-                    return (1);
-                }
-            }
-            k += atoi(argv[i]);
-        }
-        printf("%d\n", k);
-        return (0);
-    }
-}
+
